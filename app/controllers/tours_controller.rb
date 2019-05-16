@@ -8,17 +8,15 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @booking = Booking.new
-    authorize @tour
   end
 
   def new
     @tour = Tour.new
-    authorize @tour
+
   end
 
   def create
     @tour = Tour.new(tour_params)
-    authorize @tour
     @tour.provider = current_user
     if @tour.save
       redirect_to tour_path(@tour)

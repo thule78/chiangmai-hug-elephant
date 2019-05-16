@@ -1,0 +1,42 @@
+<%= simple_form_for(tour) do |f| %>
+  <% if tour.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% tour.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+  <div class="form-group">
+    <%= f.input :name, :placeholder => 'Nice Name', class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.input :details, :placeholder => 'content go here', class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.input :price, :placeholder => 'Price in USD', class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.input :location, :placeholder => 'HangDong-ChiangMai', class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.input :photo, :placeholder => 'panner photo' %>
+
+  </div>
+  <div class="form-group">
+    <%= f.input :photo_one %>
+
+  </div>
+  <div class="form-group">
+    <%= f.input :photo_two %>
+
+  </div>
+  <div class="form-group">
+    <%= f.input :photo_three %>
+
+  </div>
+  <%= f.submit class: 'btn btn-info' %>
+  <%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-outline-info' %>
+
+  <% end %>

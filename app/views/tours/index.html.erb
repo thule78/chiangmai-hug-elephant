@@ -1,1 +1,17 @@
-<h1>hello<h1>
+<div class="card-container d-flex" id="tours">
+  <div class="all-cards">
+    <h3 class="ml-4 mt-5 pt-4">Available tours</h3>
+    <div class="cards">
+      <% @tours.each do |tour| %>
+        <%= link_to tour_path(tour), class: "tour-link", :action => 'go' do %>
+          <div class="tour-card">
+
+            <div class="tour-info">
+              <h5 class="mb-0"><%= tour.name %></h5>
+              <p><%= tour.details.first(120) %>...</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
