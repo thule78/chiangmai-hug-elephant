@@ -5,5 +5,22 @@
     <p>
       <%= @tour.details %>
     </p>
-
+    <div class="tour-photo d-flex justify-content-between">
+      <% if @tour.photo_one.model[:photo_one] %>
+        <%= cl_image_tag @tour.photo_one %>
+      <% else %>
+        <%= cl_image_tag @tour.photo %>
+      <% end %>
+      <% if @tour.photo_two.model[:photo_two] %>
+        <%= cl_image_tag @tour.photo_two %>
+      <% else %>
+        <%= cl_image_tag @tour.photo %>
+      <% end %>
+      <% if @tour.photo_three.model[:photo_three] %>
+        <%= cl_image_tag @tour.photo_three %>
+      <% else %>
+        <%= cl_image_tag @tour.photo %>
+      <% end %>
+    </div>
+  </div>
 </div>
