@@ -5,7 +5,10 @@
       <% @tours.each do |tour| %>
         <%= link_to tour_path(tour), class: "tour-link", :action => 'go' do %>
           <div class="tour-card">
-
+            <div class="tour-card">
+              <%if tour.photo.present?%>
+                <%= cl_image_tag tour.photo, crop: :fill %>
+              <%end%>
             <div class="tour-info">
               <h5 class="mb-0"><%= tour.name %></h5>
               <p><%= tour.details.first(120) %>...</p>
