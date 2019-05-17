@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :photo, PhotoUploader
+
   has_many :tours, class_name: 'Tour', foreign_key: 'provider'
   has_many :bookings, class_name: 'Booking', foreign_key: 'customer_id'
 
