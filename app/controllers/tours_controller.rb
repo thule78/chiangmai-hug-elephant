@@ -45,7 +45,7 @@ class ToursController < ApplicationController
     authorize @tour
     @tour.destroy
 
-    redirect_to tuors_path
+    redirect_to tours_path
   end
 
   private
