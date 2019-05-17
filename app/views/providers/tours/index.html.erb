@@ -1,0 +1,27 @@
+<br />
+<div class="container mt-3 col-md-10 offset-md-1">
+  <div class="wrapper">
+    <h2 class="my-3">You have <%= pluralize current_user.tours.count, "tour" %></h2>
+     <ul class="provider-all-cards">
+        <% if policy(Tour).edit? %>
+        <% @tours.each do |tour| %>
+        <li>
+          <div class="tour-card-photo">
+            <%= cl_image_tag tour.photo, crop: :fill %>
+          </div>
+          <div class="tour-card-info">
+           <h3> <%= tour.name %> </h3>
+              <div class="action d-flex justify-content-center">
+                <%= link_to raw('<i class="far fa-edit"></i>'), edit_providers_tour_path(tour), class: "mr-2" %>
+                <%= link_to raw('<i class="far fa-trash-alt"></i>'), providers_tour_path(tour), method: "delete", data: { confirm: "Are you sure you want to delete '#{tour.name}'?" } %>
+              </div>
+
+          </div>
+        </li>
+        <% end %>
+        <% end %>
+     </ul>
+  </div>
+</div>
+
+
