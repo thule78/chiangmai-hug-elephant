@@ -1,0 +1,18 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  word-wrap: break-word;
+  h5 {
+    font-family: 'Heebo', sans-serif;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.mapboxgl-ctrl-top-right {
+  top: 90% !important;
+  right: 0;
+}

@@ -1,0 +1,73 @@
+.request {
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 370px;
+  max-width: 290px;
+  h5 {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  .tour_cost {
+    text-align: center;
+    color: #15AABF;
+    font-weight: 700;
+    font-size: 28px;
+    padding:8px 16px;
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
+    }
+}
+
+.tour-photo {
+  img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    background-position: center;
+  }
+}
+
+.tour-banner {
+  height: 500px;
+  background-size: cover;
+  padding: 50px;
+  background-position: center;
+}
+
+.tour-description {
+  h3 {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  p {
+    font-weight: 300;
+  }
+}
+
+.provider {
+  background-color: white;
+  h4, h6, h5 {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  h6 {
+    font-weight: 400;
+  }
+  .provider-info {
+  img {
+    border-radius: 50%;
+  }
+}
+.other-tour {
+  color: black;
+  word-wrap: break-word;
+  width: 220px;
+  img {
+    object-fit: cover;
+  }
+  &:hover {
+    text-decoration: none;
+    color: #FFB833;
+  }
+}
+}
