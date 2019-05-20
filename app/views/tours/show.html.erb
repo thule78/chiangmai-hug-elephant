@@ -3,9 +3,9 @@
 
 <div class="container d-flex my-5">
   <div class="tour-description">
-    <h3> <%= @tour.name %> </h3>
+    <h3 class="tour_title" > <%= @tour.name %> </h3>
     <p>
-      <%= @tour.details %>
+      <%= simple_format @tour.details %>
     </p>
     <div class="tour-photo d-flex justify-content-between">
       <% if @tour.photo_one.model[:photo_one] %>
@@ -27,7 +27,16 @@
     <div class="provider mt-4 rounded p-4">
       <h4 class="mt-1">Related Tours</h4>
       <div class="provider-tours d-flex justify-content-around mt-2">
-
+      <% @tours.each do |tour| %>
+        <% if Tour.find(params[:id]) != tour %>
+            <%= link_to tour_path(tour), class: "other-tour", :action => 'go' do %>
+        <div class="other-tour">
+          <%= cl_image_tag(tour.photo, width: 220, height: 150) %>
+          <h6 class="mt-2"><%= tour.name %></h6>
+        </div>
+        <% end %>
+        <% end %>
+      <% end %>
 
       </div>
     </div>
