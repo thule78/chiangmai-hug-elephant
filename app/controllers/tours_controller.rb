@@ -5,9 +5,9 @@ class ToursController < ApplicationController
 
     if params[:query].present?
       tours = policy_scope(Tour).order(created_at: :desc)
-      @tours = Tour.where("title ILIKE ?", "%#{params[:query]}%")
+      @tours = tours.search_for_tour(params[:query])
     else
-      @tours = Tour.all
+      @tours = policy_scope(Tour).order(created_at: :desc)
     end
   end
 
