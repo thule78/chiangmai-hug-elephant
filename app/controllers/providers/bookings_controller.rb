@@ -1,22 +1,27 @@
-class Providers::ToursController < ApplicationController
+class Providers::BookingsController < ApplicationController
   def index
-    tours = policy_scope(Tour).order(created_at: :desc)
-    @tours = tours.where(provider: current_user)
-  end
-
-  def edit
-    @tour = Tour.find(params[:id])
-    authorize @tour
+    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.confirmed = true
+    @booking.save
+
+    redirect_to providers_bookings_path
   end
 
   def destroy
-    @tour = Tour.find(params[:id])
-    authorize @tour
-    @tour.destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to providers_bookings_path
+  end
 
-    redirect_to providers_tours_path
+  private
+
+  def booking_params
+    params.require(:booking).permit(:confirmed)
   end
 end

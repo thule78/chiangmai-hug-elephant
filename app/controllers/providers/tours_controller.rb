@@ -1,30 +1,7 @@
-class ToursController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-
+class Providers::ToursController < ApplicationController
   def index
-    @tours = Tour.all
-  end
-
-  def show
-    @tour = Tour.find(params[:id])
-    @booking = Booking.new
-    authorize @tour
-  end
-
-  def new
-    @tour = Tour.new
-    authorize @tour
-  end
-
-  def create
-    @tour = Tour.new(tour_params)
-    authorize @tour
-    @tour.provider = current_user
-    if @tour.save
-      redirect_to tour_path(@tour)
-    else
-      render :new
-    end
+    tours = policy_scope(Tour).order(created_at: :desc)
+    @tours = tours.where(provider: current_user)
   end
 
   def edit
@@ -33,10 +10,6 @@ class ToursController < ApplicationController
   end
 
   def update
-    @tour = Tour.find(params[:id])
-    authorize @tour
-    @tour.update(tour_params)
-    redirect_to tour_path(@tour)
   end
 
   def destroy
@@ -44,12 +17,6 @@ class ToursController < ApplicationController
     authorize @tour
     @tour.destroy
 
-    redirect_to tuors_path
-  end
-
-  private
-
-  def tour_params
-    params.require(:tour).permit(:name, :details, :price, :location, :photo, :photo_one, :photo_two, :photo_three, :provider )
+    redirect_to providers_tours_path
   end
 end
