@@ -2,8 +2,13 @@ class ToursController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @tours = policy_scope(Tour).order(created_at: :desc)
 
+    if params[:query].present?
+      tours = policy_scope(Tour).order(created_at: :desc)
+      @tours = Tour.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @tours = Tour.all
+    end
   end
 
   def show

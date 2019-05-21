@@ -16,6 +16,13 @@ class Tour < ApplicationRecord
                       greater_than_or_equal_to: 20 }
   validates :location, presence: true
 
+  include PgSearch
+  pg_search_scope :search_for_tour,
+    against: [ :name, :location, :details ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def unconfirmed_count
     count = 0
     self.bookings.each do |booking|
