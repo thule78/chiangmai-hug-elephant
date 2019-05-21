@@ -44,6 +44,6 @@ class BookingsController < ApplicationController
   def booking_params
     ### left it at name and photo for testing purposes
     ### include all params when ready
-    params.require(:booking).permit(:headcount, :date)
+    params.require(:booking).permit(:headcount, :date, :pick_up, :message)
   end
 end
