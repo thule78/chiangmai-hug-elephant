@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
-  has_many :tours, class_name: 'Tour', foreign_key: 'provider'
+  has_many :tours, class_name: 'Tour', foreign_key: 'provider_id'
   has_many :bookings, class_name: 'Booking', foreign_key: 'customer_id'
 
   validates :name, presence: true
