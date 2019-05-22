@@ -57,6 +57,8 @@
         <%= f.date_field :date, class: "form-control" %>
       </div>
       <div class="form-group">
+        <%= f.input :email, label: 'email:', class: "form-control" %>
+      <div class="form-group">
         <h5>Total:</h5>
         <h5 class="tour_cost">USD<span class="tour_cost" id="tour_cost"><%= @tour.price %></span> </h5>
       </div>
