@@ -1,16 +1,14 @@
 <div class="banner d-flex flex-column justify-content-end align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://media.giphy.com/media/ToMjGpxInCZSzD3V82s/giphy.gif');">
-  <h1>Thu's Tours</h1>
-  <h3>Find Local Guides to Hidden Gems</h3>
+  <h1>Chiangmai Hug Elephant</h1>
+  <h3>Popular Tours</h3>
   <a href="#tours"><i class="fas fa-chevron-down"></i></a>
 </div>
 
-<div class="card-container d-flex" id="tours">
+<div class="card-containe" id="tours">
   <div class="all-cards">
-    <h3 class="ml-4 mt-5 pt-4">Available tours</h3>
-    <div class="cards">
+    <div class="row p-4">
       <% @tours.each do |tour| %>
-        <%= link_to tour_path(tour), class: "tour-link", :action => 'go' do %>
-          <div class="tour-card">
+        <%= link_to tour_path(tour), class: "tour-link col-md-3", :action => 'go' do %>
             <div class="tour-card">
               <%if tour.photo.present?%>
                 <%= cl_image_tag tour.photo, crop: :fill %>
@@ -22,5 +20,4 @@
           </div>
         <% end %>
       <% end %>
-    </div>
   </div>

@@ -6,7 +6,7 @@ html {
 }
 
 .banner {
-  height: 70vh;
+  height: 60vh;
   background-size: cover;
   padding: 50px;
   background-color: black;
@@ -14,7 +14,7 @@ html {
 
   h1 {
     color: #FFC659;
-    font-size: 80px;
+    font-size: 60px;
     text-align: center;
     font-family: 'Heebo', sans-serif;
     letter-spacing: 0.5px;
@@ -23,7 +23,6 @@ html {
     font-family: 'Heebo', sans-serif;
     letter-spacing: 0.5px;
     font-weight: 400;
-    padding-bottom: 170px;
     color: white;
   }
   a {
@@ -33,7 +32,7 @@ html {
 }
 
 .card-container {
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
   h3 {
     font-family: 'Heebo', sans-serif;
@@ -41,22 +40,15 @@ html {
   }
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  // grid-template-rows: 400px auto;
-  grid-gap: 16px;
-  padding: 20px;
-}
 
 .tour-card {
-  width: 300px;
+  width: 100%;
   height: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   img {
     object-fit: cover;
     background-position: center;
-    width: 300px;
+    width: 100%;
     height: 150px;
   }
   .tour-info {
@@ -65,6 +57,7 @@ html {
 }
 
 .tour-link {
+  width: 100%;
   color: #1f1f1f;
   &:hover {
     text-decoration: none;
@@ -84,10 +77,5 @@ html {
   h6 {
     font-family: 'Heebo', sans-serif;
   }
-}
-
-.mapboxgl-ctrl-top-right {
-  top: 90% !important;
-  right: 0;
 }
 

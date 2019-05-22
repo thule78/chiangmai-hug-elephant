@@ -10,6 +10,7 @@ const calDepositCost = () => {
     string_total.addEventListener('change', (event) => {
     const num_total = parseInt(string_total, 10)
     string_deposit.innerText = num_total * 2
+    console.log(num_total);
     })
   }
 }
