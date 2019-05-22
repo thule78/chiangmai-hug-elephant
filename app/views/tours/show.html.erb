@@ -57,12 +57,6 @@
         <%= f.date_field :date, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.input :pick_up, label: 'Pick up address:', :as => :text, :input_html => {:rows => 4}, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%=f.input :message,  :placeholder => 'More information we should know about your trip', :as => :text, :input_html => {:rows => 8}, class: "from-control" %>
-      </div>
-      <div class="form-group">
         <h5>Total:</h5>
         <h5 class="tour_cost">USD<span class="tour_cost" id="tour_cost"><%= @tour.price %></span> </h5>
       </div>
