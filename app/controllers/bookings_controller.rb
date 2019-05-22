@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :create]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     @booking.tour = @tour
     @booking.customer = current_user
     if @booking.save
-      redirect_to bookings_path
+      redirect_to tours_path
     else
       render template: 'tours/show', alert: 'Invalid information.'
     end
