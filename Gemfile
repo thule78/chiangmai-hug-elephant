@@ -20,6 +20,8 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'pundit'
 gem 'pg_search'
+gem 'mail_form'
+gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 
 
 group :development do

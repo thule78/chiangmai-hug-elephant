@@ -1,0 +1,18 @@
+<%= simple_form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
+    <div class="form-group">
+      <%= f.input :name, :required => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.input :email, :required => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.input :message, :as => :text, :required => true, class: 'form-control' %>
+    </div>
+    <div class= "hidden">
+      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+    <div>
+      </br>
+      <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+    </div>
+  <% end %>
