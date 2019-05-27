@@ -31,7 +31,7 @@
     <div class="provider mt-4 rounded p-4">
       <h4 class="mt-1">Related Tours</h4>
       <div class="provider-tours d-flex justify-content-around mt-2">
-      <% @tours.each do |tour| %>
+      <% @tours.first(3).each do |tour| %>
         <% if Tour.find(params[:id]) != tour %>
             <%= link_to tour_path(tour), class: "other-tour", :action => 'go' do %>
         <div class="other-tour">
