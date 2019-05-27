@@ -53,6 +53,11 @@
   }
 }
 
+.tour-duration {
+  display: flex;
+  justify-content: space-around;
+}
+
 .provider {
   background-color: white;
   h4, h6, h5 {

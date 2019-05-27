@@ -4,6 +4,10 @@
 <div class="container d-flex my-5">
   <div class="tour-description">
     <h3 class="tour_title" > <%= @tour.name %> </h3>
+    <div class="tour-duration">
+    <p><strong>Location:</strong> <%= @tour.location %></p>
+    <p><strong>Duration:</strong> <%= @tour.duration %></p>
+    </div>
     <p>
       <%= simple_format @tour.details %>
     </p>
