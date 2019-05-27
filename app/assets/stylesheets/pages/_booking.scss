@@ -1,0 +1,85 @@
+
+.booking_list {
+  list-style: none;
+  margin-top: 10px;
+  li {
+    h3 {
+      color: #15AABF;
+    }
+  }
+}
+.content_booking, .content_confirmed {
+  img {
+    object-fit: cover;
+    background-position: center;
+    width: 300px;
+    height: 200px;
+  }
+}
+
+.confirmed_list {
+  list-style: none;
+  li h3 {
+  color: #FD7E14;
+}}
+
+.wrapper {
+  margin-top: 100px;
+}
+
+.confirmed, .confirmed_title, .waiting_title, .waiting, .bookedtour h3, .confirmedtour h3 {
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.nav-link.active{
+  color: white;
+  background-color: #ffb934;
+  font-size: 20px;
+  font-weight: 400;
+  opacity: 1;
+  &:hover {
+    color: white;
+  }
+}
+
+.nav-link {
+  color: #5A6268;
+  background-color: #7D848C;
+  font-size: 20px;
+  font-weight: 400;
+  opacity: 0.5;
+  &:hover {
+    color: black;
+  }
+}
+
+.bookedtour {
+  &:hover {
+    text-decoration: none;
+    h3 {
+      color: #0c727f;
+    }
+  }
+}
+
+.confirmedtour {
+  &:hover {
+    text-decoration: none;
+    h3 {
+      color: #b75a0e;
+    }
+  }
+}
+
+.provider-name {
+  img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  h6, p {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
+  }
+}

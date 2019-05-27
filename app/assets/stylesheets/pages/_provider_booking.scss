@@ -1,0 +1,90 @@
+.tour_name {
+  color: #15AABF;
+  font-weight: bold;
+}
+
+.group_tour_book {
+  list-style: none;
+}
+
+.notification {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.notification .notification-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.notification p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.notification .notification-actions {
+  opacity: 1;
+  display: flex;
+}
+
+.notification .notification-actions a {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.notification .notification-actions a:hover {
+  color: #ffc659;
+}
+
+.confirmed {
+  color: #343a40;
+  background-color: #ffc659;
+  padding: 8px 16px;
+}
+
+h2 {
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: #15AABF;
+}
+
+h4 {
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+.unconfirm {
+  color: #343A40;
+  padding: 20px;
+  margin-top: 40px;
+  text-align: center;
+  border: solid 2px #FFC65A;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.tour-unconfirm a {
+  text-decoration: none;
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  color: #fd7e14;
+  font-size: 20px;
+}
+
+.tour-unconfirm a:hover {
+  color: #5A6268;
+}
+
+.unconfirmed-list {
+  list-style: none;
+}
