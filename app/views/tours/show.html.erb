@@ -53,19 +53,25 @@
         <%= f.input :headcount, as: :select, collection: (1..10), label: 'Number of people:', default: 1, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label 'Date:' %>
-        <%= f.date_field :date, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.input :email, label: 'email:', class: "form-control" %>
-      <div class="form-group">
         <h5>Total:</h5>
         <h5 class="tour_cost">USD<span class="tour_cost" id="tour_cost"><%= @tour.price %></span> </h5>
       </div>
       <div class="from-group">
         <h5>Deposit:</h5>
         <h5 class="tour_cost" id="deposit_cost">USD<span class="tour_cost"><%= @tour.price%> </span></h5>
-
+      </div>
+      <div class="form-group">
+        <%= f.label 'Date:' %>
+        <%= f.date_field :date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.input :email, label: 'email:', class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.input :pick_up, label: 'Pick up place:', :as => :text, :input_html => {:rows => 3}, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.input :message, label: 'More infomation', :as=> :text, :input_html => {:rows => 5}, class: "form-control" %>
       </div>
 
         <%= f.submit 'Request', class: "btn btn-info btn-lg btn-block" %>
