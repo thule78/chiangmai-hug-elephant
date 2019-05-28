@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'contact/index'
   get 'users/show'
-  devise_for :users
+  devise_for :users,
+    path: 'devise'
   root to: 'tours#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
   resources :users, only: [:show]
