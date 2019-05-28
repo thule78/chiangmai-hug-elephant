@@ -1,7 +1,7 @@
 <div class="tour-banner" style="background-image: url(<%= cl_image_path @tour.photo %>);">
 </div>
 
-<div class="container d-flex my-5">
+<div class="container my-5">
   <div class="tour-description col-10 col-sm-12 col-md-10">
     <h3 class="tour_title" > <%= @tour.name %> </h3>
     <div class="tour-duration">
@@ -11,7 +11,7 @@
     <p>
       <%= simple_format @tour.details %>
     </p>
-    <div class="tour-photo d-flex justify-content-between">
+    <div class="tour-photo">
       <% if @tour.photo_one.model[:photo_one] %>
         <%= cl_image_tag @tour.photo_one %>
       <% else %>
@@ -30,7 +30,7 @@
     </div>
     <div class="provider mt-4 rounded p-4">
       <h4 class="mt-1">Related Tours</h4>
-      <div class="provider-tours d-flex justify-content-around mt-2">
+      <div class="provider-tours mt-2">
       <% @tours.first(3).each do |tour| %>
         <% if Tour.find(params[:id]) != tour %>
             <%= link_to tour_path(tour), class: "other-tour", :action => 'go' do %>
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div class="request d-flex align-items-center justify-content-around flex-column ml-5">
+  <div class="request d-flex align-items-center justify-content-around flex-column ml-3 col-sm-12">
     <div class="form p-4">
       <%= simple_form_for [@tour, @booking] do |f| %>
       <div class="form-group">

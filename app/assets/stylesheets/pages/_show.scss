@@ -1,7 +1,13 @@
+
+.container {
+  display: flex;
+}
+
 .request {
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 250px;
+  flex-grow: 1;
   h5 {
     font-family: 'Heebo', sans-serif;
     letter-spacing: 0.5px;
@@ -18,6 +24,8 @@
 }
 
 .tour-photo {
+  display: flex;
+  justify-content: space-around;
   img {
     width: 250px;
     height: 180px;
@@ -34,6 +42,7 @@
 }
 
 .tour-description {
+  flex-grow: 2;
   h3 {
     font-family: 'Heebo', sans-serif;
     letter-spacing: 0.5px;
@@ -72,6 +81,11 @@
     border-radius: 50%;
   }
 }
+
+.provider-tours {
+  display: flex;
+  justify-content: space-around
+}
 .other-tour {
   color: black;
   word-wrap: break-word;
@@ -86,8 +100,23 @@
 }
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 900px){
+  .container {
+    display: block;
+  }
   .tour-banner {
+    display: none;
+  }
+  .tour-photo {
+    display: block;
+    img {
+      margin-bottom: 20px;
+    }
+  }
+  .provider {
+    display: none;
+  }
+  .other-tour {
     display: none;
   }
 }
