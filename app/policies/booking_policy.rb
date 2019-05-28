@@ -9,6 +9,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def new
+    true
+  end
+
   def update?
     record.tour.provider == user
   end

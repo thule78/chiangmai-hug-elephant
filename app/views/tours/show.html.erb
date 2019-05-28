@@ -2,7 +2,7 @@
 </div>
 
 <div class="container my-5">
-  <div class="tour-description col-10 col-sm-12 col-md-10">
+    <div class="tour-description col-9 col-sm-12 col-md-9">
     <h3 class="tour_title" > <%= @tour.name %> </h3>
     <div class="tour-duration">
     <p><strong>Location:</strong> <%= @tour.location %></p>
@@ -44,9 +44,9 @@
 
       </div>
     </div>
-  </div>
+    </div>
 
-  <div class="request d-flex align-items-center justify-content-around flex-column ml-3 col-sm-12">
+    <div class="request d-flex align-items-center justify-content-around flex-column ml-3 col-3 col-sm-12 col-md-9 ">
     <div class="form p-4">
       <%= simple_form_for [@tour, @booking] do |f| %>
       <div class="form-group">
@@ -81,5 +81,5 @@
         <%= f.submit 'Request', class: "btn btn-info btn-lg btn-block" %>
       <% end %>
     </div>
-  </div>
+    </div>
 </div>
