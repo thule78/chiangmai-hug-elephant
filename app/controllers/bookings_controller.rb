@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
@@ -14,8 +14,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(booking_params)
-
     redirect_to tour_path(@booking.tour)
+  end
+
+  def new
+    @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -23,7 +27,8 @@ class BookingsController < ApplicationController
     authorize @booking
     @tour = Tour.find(params[:tour_id])
     @booking.tour = @tour
-    @booking.customer = current_user
+
+    @tours = Tour.all
     if @booking.save
       redirect_to tours_path
     else

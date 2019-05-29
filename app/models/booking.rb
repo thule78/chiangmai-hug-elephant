@@ -4,7 +4,6 @@ class Booking < ApplicationRecord
   validates :headcount, presence: true, numericality: {only_integer: true, greater_than: 0, less_than_or_equal_to: 15}
   validates :date, presence: true
   validates :email, presence: true, :format => /\A(\S+)@(.+)\.(\S+)\z/
-  validates :pick_up, presence: true
 
   def self.has_unconfirmed_requests?(user)
     unconfirmed_bookings = 0

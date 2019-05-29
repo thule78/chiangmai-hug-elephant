@@ -32,7 +32,6 @@
       <h4 class="mt-1">Related Tours</h4>
       <div class="provider-tours mt-2">
       <% @tours.first(3).each do |tour| %>
-        <% if Tour.find(params[:id]) != tour %>
             <%= link_to tour_path(tour), class: "other-tour", :action => 'go' do %>
         <div class="other-tour">
           <%= cl_image_tag(tour.photo, width: 220, height: 150) %>
@@ -40,7 +39,7 @@
         </div>
         <% end %>
         <% end %>
-      <% end %>
+
 
       </div>
     </div>
