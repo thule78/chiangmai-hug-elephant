@@ -8,9 +8,6 @@
     <p><strong>Location:</strong> <%= @tour.location %></p>
     <p><strong>Duration:</strong> <%= @tour.duration %></p>
     </div>
-    <p>
-      <%= simple_format @tour.details %>
-    </p>
     <div class="tour-photo">
       <% if @tour.photo_one.model[:photo_one] %>
         <%= cl_image_tag @tour.photo_one %>
@@ -28,6 +25,10 @@
         <%= cl_image_tag @tour.photo %>
       <% end %>
     </div>
+    <p>
+      <%= simple_format @tour.details %>
+    </p>
+
     <div class="provider mt-4 rounded p-4">
       <h4 class="mt-1">Related Tours</h4>
       <div class="provider-tours mt-2">
