@@ -1,85 +1,90 @@
+.tour_name {
+  color: #15AABF;
+  font-weight: bold;
+}
 
-.booking_list {
+.group_tour_book {
   list-style: none;
-  margin-top: 10px;
-  li {
-    h3 {
-      color: #15AABF;
-    }
-  }
-}
-.content_booking, .content_confirmed {
-  img {
-    object-fit: cover;
-    background-position: center;
-    width: 300px;
-    height: 200px;
-  }
 }
 
-.confirmed_list {
-  list-style: none;
-  li h3 {
-  color: #FD7E14;
-}}
-
-.wrapper {
-  margin-top: 100px;
+.notification {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
 }
 
-.confirmed, .confirmed_title, .waiting_title, .waiting, .bookedtour h3, .confirmedtour h3 {
+.notification .notification-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.notification p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.notification .notification-actions {
+  opacity: 1;
+  display: flex;
+}
+
+.notification .notification-actions a {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.notification .notification-actions a:hover {
+  color: #ffc659;
+}
+
+.confirmed {
+  color: #343a40;
+  background-color: #ffc659;
+  padding: 8px 16px;
+}
+
+h2 {
   font-family: 'Heebo', sans-serif;
   letter-spacing: 0.5px;
+  font-weight: 700;
+  color: #15AABF;
 }
 
-.nav-link.active{
-  color: white;
-  background-color: #ffb934;
-  font-size: 20px;
+h4 {
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
   font-weight: 400;
-  opacity: 1;
-  &:hover {
-    color: white;
-  }
 }
 
-.nav-link {
+.unconfirm {
+  color: #343A40;
+  padding: 20px;
+  margin-top: 40px;
+  text-align: center;
+  border: solid 2px #FFC65A;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.tour-unconfirm a {
+  text-decoration: none;
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  color: #fd7e14;
+  font-size: 20px;
+}
+
+.tour-unconfirm a:hover {
   color: #5A6268;
-  background-color: #7D848C;
-  font-size: 20px;
-  font-weight: 400;
-  opacity: 0.5;
-  &:hover {
-    color: black;
-  }
 }
 
-.bookedtour {
-  &:hover {
-    text-decoration: none;
-    h3 {
-      color: #0c727f;
-    }
-  }
-}
-
-.confirmedtour {
-  &:hover {
-    text-decoration: none;
-    h3 {
-      color: #b75a0e;
-    }
-  }
-}
-
-.provider-name {
-  img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-  }
-  h6, p {
-    font-family: 'Heebo', sans-serif;
-    letter-spacing: 0.5px;
-  }
+.unconfirmed-list {
+  list-style: none;
 }

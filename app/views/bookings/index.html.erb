@@ -1,83 +1,67 @@
+<br />
 
+<div class="container">
 
-<div class="wrapper col-md-9 offset-md-2">
-  <ul class="nav mb-3" id="pills-tab" role="tablist">
-    <li class="booking-nav-item">
-      <a class="nav-link active rounded-left" id="pills-pending-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Pending</a>
-    </li>
-    <li class="booking-nav-item">
-      <a class="nav-link rounded-right" id="pills-confirmed-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Confirmed</a>
-    </li>
-  </ul>
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <% if current_user.bookings.empty? %>
-          <p>You don't have any upcoming tours. <%= link_to "Start exploring!", tours_path(anchor: "tours"), class: 'btn btn-info' %></p>
-        <% else %>
-          <ul class='list-group booking_list unconfirmed-bookings'>
-            <% current_user.bookings.where(confirmed: nil).each_with_index do |booking, index| %>
-            <li class="mb-4 border-bottom pb-3">
-            <%= link_to tour_path(booking.tour), class: "bookedtour", :action => 'go' do %>
-              <h3 class="pb-2">
-                <%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-plane"></i></span> <%= booking.tour.name%>
-              </h3>
+  <% total_requests = nil %>
+        <% tours_with_requests = [] %>
+      <% if Booking.has_unconfirmed_requests?(current_user) %>
+        <% total_requests = 0 %>
+        <% Tour.all.each do |tour| %>
+          <% tour.bookings.each do |booking| %>
+            <% if booking.confirmed.nil? %>
+              <% total_requests += 1 %>
+              <% tours_with_requests << tour %>
             <% end %>
-              <div>
-                <strong>Date: </strong><%= booking.nice_date %> | <strong>People:</strong> <%= booking.headcount %> | <strong>Price: ￥</strong> <%= booking.tour.price %> | <strong>Total: ￥</strong> <%= booking.tour.price * booking.headcount %>&nbsp;&nbsp;&nbsp;<%= link_to raw('<i class="fas fa-trash-alt"></i>'),  booking_path(booking), method: "delete", class: "text-dark", data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" }%> <br>
-              </div>
-              <div class="content_booking d-flex mt-3">
-                <%= cl_image_tag booking.tour.photo %>
-                <div class="tour-content-provider">
-                  <p class='ml-3'><%= booking.tour.details%></p>
-                  <div class="provider-name ml-3">
-                    <h6>tour provider:</h6>
-                    <% if booking.tour.provider.photo.file.nil? %>
-                      <p><%= cl_image_tag 'default-photo' %> <%= booking.tour.provider.name %></p>
-                    <% else %>
-                      <p><%= cl_image_tag booking.tour.provider.photo %> <%= booking.tour.provider.name %></p>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
+          <% end %>
+        <% end %>
+        <% tours_with_requests = tours_with_requests.uniq %>
+      <% end %>
+  <% unless total_requests.nil? %>
+    <div class="unconfirm mt-5 col-md-8 offset-md-2">
+
+
+
+        <div class="tour-unconfirm">
+          <h4>You have <%= pluralize total_requests, "unconfirmed request" %>:</h4>
+          <ul class="unconfirmed-list">
+            <% tours_with_requests.each do |tour| %>
+            <li>
+              <%= link_to "#{tour.name} ", bookings_path(anchor: "#{tour.id}") %> <span style= "font-family: 'Heebo', sans-serif;letter-spacing: 0.5px; font-weight: bold; color: #5A6268;font-size: 20px;"><%= pluralize tour.unconfirmed_count, "request"%></span>
             </li>
-        <% end %>
+            <% end %>
           </ul>
+      </div>
+
     </div>
-
-
-  <!-- This is a list of a user's confirmed/upcoming tours -->
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-    <% if current_user.bookings.where(confirmed: true).any? %>
-    <ul class='list-group confirmed_list confirmed-bookings'>
-      <% current_user.bookings.where(confirmed: true).each_with_index do |booking, index| %>
-        <li class="mb-4 border-bottom pb-3">
-        <%= link_to tour_path(booking.tour), class: "confirmedtour", :action => 'go' do %>
-          <h3 class="pb-2">
-            <%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-plane-departure"></i></span> <%= booking.tour.name%>
-          </h3>
-        <% end %>
-          <div>
-             <strong>Date: </strong><%= booking.nice_date %> | <strong>People:</strong> <%= booking.headcount %> | <strong>Price: USD</strong> <%= booking.tour.price %> | <strong>Total: USD</strong> <%= booking.tour.price * booking.headcount %>&nbsp;&nbsp;&nbsp;<%= link_to raw('<i class="fas fa-trash-alt"></i>'),  booking_path(booking), method: "delete", class: "text-dark", data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" }%> <br>
-             <strong>Pick Up: </strong><%= booking.tour.pick_up %>
-             <strong>Message: </strong><%= booking.tour.message %>
-          </div>
-          <div class="content_confirmed d-flex mt-3">
-            <%= cl_image_tag booking.tour.photo%>
-            <div class="tour-content-provider">
-              <p class='ml-3'><%= booking.tour.details%></p>
-              <div class="provider-name ml-3">
-                <h6>tour provider:</h6>
-                <p><%= cl_image_tag '237-Alvin-avatar-01' %> <%= booking.tour.provider.name %></p>
-              </div>
-            </div>
-          </div>
-        </li>
-        <% end %>
-    </ul>
-    <% else %>
-    <p>Please wait for a tour provider to approve your requests. 📨 </p>
-    <% end %>
   <% end %>
+
+  <div class="wrapper mt-5 col-md-10 offset-md-1">
+    <% Tour.all.each do |tour| %>
+    <% if tour.bookings.any? %>
+      <ul class="provider_tour group_tour_book">
+        <%= raw("<h2 class='tour_name' id='#{tour.id}''> #{tour.name} </h2>") %>
+        <% tour.bookings.each do |booking| %>
+          <li class="mt-4">
+            <div class="notification py-3">
+              <%= cl_image_tag booking.tour.photo, class: "avatar-square"%>
+              <div class="notification-content">
+                <h3><%= booking.email %></h3>
+                <p><strong>Booking-id:</strong> <%= booking.id %></p>
+                <p><strong>Date:</strong> <%= booking.nice_date %> - <strong>People:</strong> <%= booking.headcount %> - <strong>Total: $US</strong> <%= booking.tour.price * booking.headcount %></p>
+              </div>
+              <% if booking.confirmed == true %>
+              <p class="confirmed">Confirmed <i class="fas fa-check"></i></p>
+              <% else %>
+                <div class="notification-actions">
+                  <%= link_to raw('Confirm <i class="fas fa-check"></i>'), booking_path(booking), class: "text-dark btn btn-outline-info", method: :patch %>
+                  <%= link_to raw('Cancel <i class="far fa-trash-alt"></i>'),booking_path(booking), method: "delete",  data: { confirm: "Are you sure you want to cancel #{booking.email}'s request for '#{booking.tour.name}'?" } %>
+                </div>
+              <% end %>
+            </div>
+          </li>
+          <% end %>
+      </ul>
+      <% end %>
+      <% end %>
   </div>
-  <div class="tab-content" id="pills-tabContent">
 </div>

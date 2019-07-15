@@ -4,6 +4,10 @@ class Booking < ApplicationRecord
   validates :date, presence: true
   validates :email, presence: true, :format => /\A(\S+)@(.+)\.(\S+)\z/
 
+  def nice_date
+    date.strftime("%b %d, %Y") if date
+  end
+
   def self.has_unconfirmed_requests?(user)
     unconfirmed_bookings = 0
     user.tours.each do |tour|
