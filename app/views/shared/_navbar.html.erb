@@ -13,7 +13,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item mr-4">
-          <% if current_user %>
+          <% if current_user.admin?%>
             <% var = current_user %>
             <% if var.tours.any? %>
               <div class="dropdown">
@@ -37,9 +37,9 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <%= link_to "Host a new tour", new_tour_path, class: "dropdown-item" %>
                   <% unless total_requests.nil? %>
-                    <%= link_to raw("Booking requests <span id='num-requests'>#{total_requests}</span>"), providers_bookings_path, class: "dropdown-item" %>
+                    <%= link_to raw("Booking requests <span id='num-requests'>#{total_requests}</span>"), bookings_path, class: "dropdown-item" %>
                   <% else %>
-                    <%= link_to raw("Booking requests"), providers_bookings_path, class: "dropdown-item" %>
+                    <%= link_to raw("Booking requests"), bookings_path, class: "dropdown-item" %>
                   <% end %>
                 </div>
               </div>
