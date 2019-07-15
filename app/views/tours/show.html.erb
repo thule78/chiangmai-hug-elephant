@@ -2,27 +2,27 @@
 </div>
 
 <div class="container my-5">
-    <div class="tour-description col-9 col-sm-12 col-md-9">
+  <div class="tour-description col-9 col-sm-12 col-md-9">
     <h3 class="tour_title" > <%= @tour.name %> </h3>
     <div class="tour-duration">
-    <p><strong>Location:</strong> <%= @tour.location %></p>
-    <p><strong>Duration:</strong> <%= @tour.duration %></p>
+      <p><strong>Location:</strong> <%= @tour.location %></p>
+      <p><strong>Duration:</strong> <%= @tour.duration %></p>
     </div>
     <div class="tour-photo">
       <% if @tour.photo_one.model[:photo_one] %>
-        <%= cl_image_tag @tour.photo_one %>
+      <%= cl_image_tag @tour.photo_one %>
       <% else %>
-        <%= cl_image_tag @tour.photo %>
+      <%= cl_image_tag @tour.photo %>
       <% end %>
       <% if @tour.photo_two.model[:photo_two] %>
-        <%= cl_image_tag @tour.photo_two %>
+      <%= cl_image_tag @tour.photo_two %>
       <% else %>
-        <%= cl_image_tag @tour.photo %>
+      <%= cl_image_tag @tour.photo %>
       <% end %>
       <% if @tour.photo_three.model[:photo_three] %>
-        <%= cl_image_tag @tour.photo_three %>
+      <%= cl_image_tag @tour.photo_three %>
       <% else %>
-        <%= cl_image_tag @tour.photo %>
+      <%= cl_image_tag @tour.photo %>
       <% end %>
     </div>
     <p>
@@ -32,8 +32,8 @@
     <div class="provider mt-4 rounded p-4">
       <h4 class="mt-1">Related Tours</h4>
       <div class="provider-tours mt-2">
-      <% @tours.first(3).each do |tour| %>
-            <%= link_to tour_path(tour), class: "other-tour", :action => 'go' do %>
+        <% @tours.first(3).each do |tour| %>
+        <%= link_to tour_path(tour), class: "other-tour", :action => 'go' do %>
         <div class="other-tour">
           <%= cl_image_tag(tour.photo, width: 220, height: 150) %>
           <h6 class="mt-2"><%= tour.name %></h6>
@@ -44,9 +44,9 @@
 
       </div>
     </div>
-    </div>
+  </div>
 
-    <div class="request d-flex align-items-center justify-content-around flex-column ml-3 col-3 col-sm-12 col-md-9 ">
+  <div class="request d-flex align-items-center justify-content-around flex-column ml-3 col-3 col-sm-12 col-md-9 ">
     <div class="form p-4">
       <%= simple_form_for [@tour, @booking] do |f| %>
       <div class="form-group">
@@ -60,10 +60,6 @@
         <h5>Total:</h5>
         <h5 class="tour_cost">USD<span class="tour_cost" id="tour_cost"><%= @tour.price %></span> </h5>
       </div>
-      <div class="from-group">
-        <h5>Deposit:</h5>
-        <h5 class="tour_cost" id="deposit_cost">USD<span class="tour_cost"><%= @tour.price%> </span></h5>
-      </div>
       <div class="form-group">
         <%= f.label 'Date:' %>
         <%= f.date_field :date, class: "form-control" %>
@@ -72,14 +68,14 @@
         <%= f.input :email, label: 'email:', class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.input :pick_up, label: 'Pick up place:', :as => :text, :input_html => {:rows => 3}, class: "form-control" %>
+        <%= f.input :pick_up, label: 'Pick up place', :as => :text, :input_html => {:rows => 5}, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.input :message, label: 'More infomation', :as=> :text, :input_html => {:rows => 5}, class: "form-control" %>
       </div>
 
-        <%= f.submit 'Request', class: "btn btn-info btn-lg btn-block" %>
+      <%= f.submit 'Request', class: "btn btn-info btn-lg btn-block" %>
       <% end %>
     </div>
-    </div>
+  </div>
 </div>

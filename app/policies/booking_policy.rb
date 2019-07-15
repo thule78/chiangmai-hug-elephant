@@ -14,10 +14,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.tour.provider == user
+   current_user.admin?
   end
 
   def destroy?
-    record.tour.provider == user
+    current_user.admin?
   end
 end
