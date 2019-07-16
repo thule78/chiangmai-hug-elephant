@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
     @tours = Tour.all
     if @booking.save
-      redirect_to tours_path
+      redirect_to booking_path
     else
       render template: 'tours/show', alert: 'Invalid information.'
     end
