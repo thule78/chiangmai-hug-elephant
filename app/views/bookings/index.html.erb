@@ -13,8 +13,13 @@
               <div class="notification-content">
                 <h3><%= booking.email %></h3>
                 <p><strong>Booking-id:</strong> <%= booking.id %></p>
-                <p><strong>Date:</strong> <%= booking.nice_date %> - <strong>People:</strong> <%= booking.headcount %> - <strong>Total: $US</strong> <%= booking.tour.price * booking.headcount %></p>
+                <p><strong>Depature Date:</strong> <%= booking.nice_date %> - <strong>People:</strong> <%= booking.headcount %> - <strong>Total: $US</strong> <%= booking.tour.price * booking.headcount %></p>
+                <div>
+                <p><strong>Pich up:</strong> <%= booking.pick_up %> </p>
+                <p><strong>Message:</strong> <%= booking.message %> </p>
               </div>
+              </div>
+
               <% if booking.confirmed == true %>
               <p class="confirmed">Confirmed <i class="fas fa-check"></i></p>
               <% else %>

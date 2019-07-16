@@ -30,7 +30,8 @@ class BookingsController < ApplicationController
 
     @tours = Tour.all
     if @booking.save
-      redirect_to booking_path
+      flash[:success] = "Your booking was created successfully"
+      redirect_to tours_path
     else
       render template: 'tours/show', alert: 'Invalid information.'
     end
