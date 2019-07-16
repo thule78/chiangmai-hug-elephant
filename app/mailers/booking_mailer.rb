@@ -8,6 +8,6 @@ class BookingMailer < ApplicationMailer
   def confirm
     @greeting = "Dear Customer"
 
-    mail (to: @booking.email, subject: "Chiangmai Hug Elephant Booking")
+    mail(to: @booking.email, subject: 'Chiangmai Hug Elephant booking')
   end
 end
