@@ -10,6 +10,7 @@ class BookingMailer < ApplicationMailer
 
     mail(
       to:       @booking.email,
+      bcc: "adventure.asia365@gmail.com",
       subject:  "Chiangmai Hug Elephan Booking!"
     )
   end

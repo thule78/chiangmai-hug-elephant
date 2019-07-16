@@ -91,4 +91,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  #sendgrid follow https://medium.com/le-wagon/how-to-send-email-with-action-mailer-and-sendgrid-in-rails-5-32ed0c9167fd
+  config.action_mailer.delivery_method = :smtp
+config.action_mailer.default_url_options = { host: "http://chiangmai-hug-elephant.com" }
+
 end
