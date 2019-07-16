@@ -14,10 +14,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-   user.admin?
+   true
   end
 
   def destroy?
-    user.admin?
+   true
   end
 end
