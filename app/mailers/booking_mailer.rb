@@ -5,9 +5,12 @@ class BookingMailer < ApplicationMailer
   #
   #   en.booking_mailer.confirm.subject
   #
-  def confirm
-    @greeting = "Dear Customer"
+  def create_confirmation
+    @booking = params[:booking]
 
-    mail(to: @booking.email, subject: 'Chiangmai Hug Elephant booking')
+    mail(
+      to:       @booking.email,
+      subject:  "Chiangmai Hug Elephan Booking!"
+    )
   end
 end

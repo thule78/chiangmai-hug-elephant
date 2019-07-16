@@ -31,6 +31,8 @@ class BookingsController < ApplicationController
     @tours = Tour.all
     if @booking.save
       flash[:success] = "Your booking was created successfully"
+      mail = BookingMailer.with(booking: @booking).create_confirmation
+      mail.deliver_now
       redirect_to tours_path
     else
       render template: 'tours/show', alert: 'Invalid information.'
