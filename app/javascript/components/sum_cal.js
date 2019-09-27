@@ -10,7 +10,7 @@ const calculateTotalCost = () => {
     headCount.addEventListener('change',(event) => {
       const string_count = headCount.value
       const num_count = parseInt(string_count, 10)
-      string_cost.innerText = num_cost * num_count
+      string_cost.innerText = (num_cost * num_count)/2
     })
   }
 }
