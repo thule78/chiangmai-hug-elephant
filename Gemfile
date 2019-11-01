@@ -22,6 +22,8 @@ gem 'pundit'
 gem 'pg_search'
 gem 'mail_form'
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
+gem 'friendly_id', '~> 5.2.4'
+gem "breadcrumbs_on_rails"
 
 
 group :development do

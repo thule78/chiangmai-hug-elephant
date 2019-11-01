@@ -1,4 +1,5 @@
 class Tour < ApplicationRecord
+
   belongs_to :provider, class_name: "User", foreign_key: 'provider_id'
   has_many :customers, through: :bookings
   has_many :bookings, dependent: :delete_all
@@ -16,6 +17,7 @@ class Tour < ApplicationRecord
                       greater_than_or_equal_to: 20 }
   validates :location, presence: true
 
+
   include PgSearch
   pg_search_scope :search_for_tour,
     against: [ :name, :location, :details ],
@@ -32,4 +34,7 @@ class Tour < ApplicationRecord
     end
     count
   end
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

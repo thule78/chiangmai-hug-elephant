@@ -1,6 +1,7 @@
 class ToursController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+
   def index
 
     if params[:query].present?
@@ -13,7 +14,7 @@ class ToursController < ApplicationController
 
   def show
     @tours = Tour.all
-    @tour = Tour.find(params[:id])
+    @tour = Tour.friendly.find(params[:id])
     @booking = Booking.new
     authorize @tour
   end
@@ -35,19 +36,19 @@ class ToursController < ApplicationController
   end
 
   def edit
-    @tour = Tour.find(params[:id])
+    @tour = Tour.friendly.find(params[:id])
     authorize @tour
   end
 
   def update
-    @tour = Tour.find(params[:id])
+    @tour = Tour.friendly.find(params[:id])
     authorize @tour
     @tour.update(tour_params)
     redirect_to tour_path(@tour)
   end
 
   def destroy
-    @tour = Tour.find(params[:id])
+    @tour = Tour.friendly.find(params[:id])
     authorize @tour
     @tour.destroy
 
